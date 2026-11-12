@@ -34,11 +34,10 @@ slides = [
     (p3.s22_dialog, 22, "Помощник: диалог"),
     (p3.s23_support, 23, "Техподдержка"),
     (p3.s24_admin, 24, "Администрирование"),
-    (p4.s25_tests, 25, "Тестирование"),
-    (p4.s26_problems, 26, "Проблемы и решения"),
-    (p4.s27_stages, 27, "Этапы разработки"),
-    (p4.s28_results, 28, "Итоги"),
-    (p4.s29_thanks, 29, "Финал"),
+    (p4.s26_problems, 25, "Проблемы и решения"),
+    (p4.s27_stages, 26, "Этапы разработки"),
+    (p4.s28_results, 27, "Итоги"),
+    (p4.s29_thanks, 28, "Финал"),
 ]
 
 c = canvas.Canvas(OUT, pagesize=(W, H))
@@ -54,7 +53,7 @@ for i, (fn, num, title) in enumerate(slides, 1):
         fn(c)
     else:
         fn(c, num)
-        footer(c, num, dark=(num in (15, 29)))
+        footer(c, num, dark=(num in (15, 28)))
     c.showPage()
 
 c.save()
