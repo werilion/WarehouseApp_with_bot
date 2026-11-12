@@ -31,7 +31,7 @@ def s01_title(c):
     for i in range(10):
         c.line(0, 70 + i * 52, W, 30 + i * 52)
 
-    text(c, M, 492, "ИТОГОВЫЙ ПРОЕКТ  •  2026", FONT_B, 8.6, ORANGE)
+    text(c, M, 492, "2026", FONT_B, 8.6, ORANGE)
     c.setFillColor(ORANGE)
     c.rect(M, 480, 28, 2.2, fill=1, stroke=0)
 

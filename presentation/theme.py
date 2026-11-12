@@ -231,7 +231,7 @@ def footer(c, num, dark=False):
     c.setStrokeColor(HexColor("#E6EBF2") if not dark else HexColor("#2A3B52"))
     c.setLineWidth(0.6)
     c.line(M, 36, W - M, 36)
-    text(c, M, 24, "Складской учёт PRO  •  итоговый проект", FONT, 7.4, col)
+    text(c, M, 24, "Складской учёт PRO", FONT, 7.4, col)
     text(c, W - M, 24, str(num), FONT_B, 7.8, col, "r")
 
 

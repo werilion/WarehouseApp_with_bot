@@ -122,7 +122,7 @@ def s28_results(c, num):
 
 def s29_thanks(c, num):
     page_bg(c, dark=True)
-    text(c, M, 468, "ИТОГОВЫЙ ПРОЕКТ  •  2026", FONT_B, 9, ORANGE)
+    text(c, M, 468, "2026", FONT_B, 9, ORANGE)
     c.setFillColor(ORANGE)
     c.rect(M, 456, 28, 2, fill=1, stroke=0)
 

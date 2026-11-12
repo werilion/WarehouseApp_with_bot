@@ -41,9 +41,9 @@ slides = [
 ]
 
 c = canvas.Canvas(OUT, pagesize=(W, H))
-c.setTitle("Складской учёт PRO — итоговый проект")
+c.setTitle("Складской учёт PRO")
 c.setAuthor("Складской учёт PRO")
-c.setSubject("Презентация итогового проекта: WPF-приложение складского учёта")
+c.setSubject("Презентация: WPF-приложение складского учёта")
 
 for i, (fn, num, title) in enumerate(slides, 1):
     key = f"slide{i}"
