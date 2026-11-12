@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="WarehouseApp.Views.ReportsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Фильтры -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+            <StackPanel Margin="0,0,15,0">
+                <TextBlock Text="С:"/>
+                <DatePicker SelectedDate="{Binding StartDate}" Width="120"/>
+            </StackPanel>
+            <StackPanel Margin="0,0,15,0">
+                <TextBlock Text="По:"/>
+                <DatePicker SelectedDate="{Binding EndDate}" Width="120"/>
+            </StackPanel>
+            
+            <Button Content="Остатки" Command="{Binding LoadStockReportCommand}" Margin="10,0" Padding="15,5"/>
+            <Button Content="Движение товара" Command="{Binding LoadMovementReportCommand}" Margin="10,0" Padding="15,5"/>
+            <Button Content="Экспорт в Excel (CSV)" Command="{Binding ExportCommand}" Background="#F39C12" Foreground="White" Margin="10,0" Padding="15,5"/>
+        </StackPanel>
+
+        <!-- Таблица данных -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding ReportData}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Товар" Binding="{Binding ProductName}" Width="*"/>
+                <DataGridTextColumn Header="Категория/Тип" Binding="{Binding DocType}" Width="150"/>
+                <DataGridTextColumn Header="Кол-во" Binding="{Binding Quantity}" Width="100"/>
+                <DataGridTextColumn Header="Сумма" Binding="{Binding TotalSum}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

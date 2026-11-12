@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WarehouseApp.Views.HistoryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="#F4F7F9">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="История операций" FontSize="18" FontWeight="SemiBold" Margin="5,0,0,15" Foreground="#2C3E50"/>
+
+        <Border Grid.Row="1" Background="White" CornerRadius="10">
+            <Border.Effect><DropShadowEffect BlurRadius="10" Opacity="0.05" ShadowDepth="1"/></Border.Effect>
+            <DataGrid ItemsSource="{Binding Documents}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Background="Transparent" RowHeight="35">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="№" Binding="{Binding Id}" Width="50"/>
+                    <DataGridTextColumn Header="ТИП" Binding="{Binding DocType}" Width="100"/>
+                    <DataGridTextColumn Header="ДАТА" Binding="{Binding DocDate, StringFormat={}{0:dd.MM.yyyy HH:mm}}" Width="140"/>
+                    <DataGridTextColumn Header="КОНТРАГЕНТ" Binding="{Binding ContractorName}" Width="*"/>
+                    <DataGridTextColumn Header="СУММА" Binding="{Binding TotalAmount, StringFormat={}{0:N2}}" Width="100"/>
+                    <DataGridTemplateColumn Width="100">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Удалить" Command="{Binding DataContext.DeleteDocumentCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                        CommandParameter="{Binding}" Background="#E74C3C" Foreground="White" BorderThickness="0" Height="25" Margin="2">
+                                    <Button.Resources><Style TargetType="Border"><Setter Property="CornerRadius" Value="4"/></Style></Button.Resources>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</UserControl>

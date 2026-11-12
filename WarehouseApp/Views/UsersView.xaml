@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="WarehouseApp.Views.UsersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Список пользователей -->
+        <DataGrid ItemsSource="{Binding Users}" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" Margin="0,0,20,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="100"/>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="*"/>
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role.Name}" Width="120"/>
+                <DataGridTemplateColumn Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" Command="{Binding DataContext.DeleteUserCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                    CommandParameter="{Binding}" Background="#E74C3C" Foreground="White"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Форма добавления -->
+        <Border Grid.Column="1" Background="#F8F9FA" Padding="15" CornerRadius="8" VerticalAlignment="Top">
+            <StackPanel>
+                <TextBlock Text="НОВЫЙ ПОЛЬЗОВАТЕЛЬ" FontWeight="Bold" Margin="0,0,0,15"/>
+                
+                <TextBlock Text="Логин:"/>
+                <TextBox Text="{Binding NewLogin}" Margin="0,5,0,10" Height="25"/>
+                
+                <TextBlock Text="Пароль:"/>
+                <TextBox Text="{Binding NewPassword}" Margin="0,5,0,10" Height="25"/>
+                
+                <TextBlock Text="ФИО:"/>
+                <TextBox Text="{Binding NewFullName}" Margin="0,5,0,10" Height="25"/>
+                
+                <TextBlock Text="Роль:"/>
+                <ComboBox ItemsSource="{Binding Roles}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedRole}" Margin="0,5,0,20" Height="25"/>
+                
+                <Button Content="Создать" Command="{Binding AddUserCommand}" Background="#27AE60" Foreground="White" Height="35" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
