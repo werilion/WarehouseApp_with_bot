@@ -45,15 +45,13 @@ def s01_title(c):
          12.6, 18, HexColor("#C6D3E2"))
 
     line(c, M, 238, M + 520, 238, HexColor("#2B425E"), 1)
-    text(c, M, 212, "Выполнил(а):  ______________________________", FONT, 10, HexColor("#AFC0D6"))
-    text(c, M, 192, "Группа:  ______________        Руководитель:  ______________________", FONT, 10, HexColor("#AFC0D6"))
 
     x = M
     for label in [".NET 8", "WPF", "MVVM", "ADO.NET", "LocalDB"]:
-        x += pill(c, x, 128, label, 7.4, HexColor("#BFD0E3"), HexColor("#1C3048"),
+        x += pill(c, x, 190, label, 7.4, HexColor("#BFD0E3"), HexColor("#1C3048"),
                   HexColor("#324A66")) + 7
 
-    text(c, M, 82, "Локальная работа  •  без подписки  •  без интернета  •  с помощником внутри",
+    text(c, M, 148, "Локальная работа  •  без подписки  •  без интернета  •  с помощником внутри",
          FONT, 9, HexColor("#7F95B0"))
 
     nodes = {
